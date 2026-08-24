@@ -1,241 +1,306 @@
-/**
- * Sovereign Soul Collective Landing Page
- * Luminous Threshold: A cinematic journey from shadow into warm dawn,
- * inviting people who sense there's more beneath the surface.
- */
+const skoolCommunityUrl =
+  "https://www.skool.com/sovereign-soul-collective-7085/about";
+const heroImage = "/ssc-community-hero.webp";
+const heroImageFallback = "/ssc-community-hero.jpg";
+const sealImage = "/ssc-circular-seal.webp";
 
-import { ArrowRight } from "lucide-react";
-import { motion } from "framer-motion";
+const pillars = [
+  {
+    title: "Self-inquiry",
+    description:
+      "Look beneath surface habits and assumptions with grounded reflection.",
+  },
+  {
+    title: "Community",
+    description:
+      "Share perspective with thoughtful people who value honesty over performance.",
+  },
+  {
+    title: "Practical transformation",
+    description:
+      "Turn insight into clearer choices, steadier relationships, and daily alignment.",
+  },
+];
+
+const pathway = [
+  {
+    step: "01",
+    title: "Join the collective",
+    description:
+      "Enter the private Skool space created for people who sense there is more beneath the surface.",
+  },
+  {
+    step: "02",
+    title: "Explore the material",
+    description:
+      "Move through lessons, reflection prompts, and conversations at a simple, spacious pace.",
+  },
+  {
+    step: "03",
+    title: "Apply what resonates",
+    description:
+      "Bring what you notice back into everyday life with more clarity, authenticity, and intention.",
+  },
+];
+
+const supportPoints = [
+  "For people drawn to consciousness, spirituality, self-awareness, and human potential.",
+  "A grounded place to question assumptions and understand subconscious patterns.",
+  "Built around reflection, meaningful conversation, and practical integration.",
+];
+
+function SectionHeading({
+  eyebrow,
+  title,
+  description,
+}: {
+  eyebrow: string;
+  title: string;
+  description?: string;
+}) {
+  return (
+    <div className="mx-auto max-w-3xl">
+      <p className="mb-4 text-xs font-semibold uppercase tracking-[0.3em] text-amber-300/80">
+        {eyebrow}
+      </p>
+      <h2 className="text-4xl leading-tight text-stone-50 sm:text-5xl">
+        {title}
+      </h2>
+      {description ? (
+        <p className="mt-5 max-w-2xl text-lg text-stone-300">{description}</p>
+      ) : null}
+    </div>
+  );
+}
 
 export default function Home() {
-  const skoolCommunityUrl =
-    "https://www.skool.com/sovereign-soul-collective-7085/about";
-
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-        delayChildren: 0.2,
-      },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.6, ease: "easeOut" },
-    },
-  };
-
   return (
-    <motion.div
-      className="min-h-screen bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950"
-      initial="hidden"
-      animate="visible"
-      variants={containerVariants}
-    >
-      {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden px-4 py-20">
-        {/* Background imagery would go here */}
-        <div className="absolute inset-0 opacity-20">
-          <div className="absolute top-0 left-1/4 w-96 h-96 bg-amber-900/20 rounded-full blur-3xl"></div>
-          <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-amber-800/10 rounded-full blur-3xl"></div>
-        </div>
+    <div id="top" className="min-h-screen bg-transparent text-stone-100">
+      <main>
+        <section className="border-b border-white/10">
+          <div className="mx-auto grid min-h-screen max-w-6xl items-center gap-12 px-6 py-16 sm:px-8 lg:grid-cols-[minmax(0,1fr)_minmax(320px,540px)] lg:px-10">
+            <div className="order-2 max-w-2xl lg:order-1">
+              <a
+                href="#top"
+                className="mb-8 inline-flex items-center gap-4 text-left no-underline"
+                aria-label="Sovereign Soul Collective"
+              >
+                <img
+                  src={sealImage}
+                  alt="Sovereign Soul Collective circular seal"
+                  className="h-16 w-16 rounded-full border border-amber-400/30 object-cover"
+                  width="64"
+                  height="64"
+                  loading="eager"
+                  decoding="async"
+                />
+                <span className="flex flex-col">
+                  <span className="text-2xl text-stone-50 sm:text-3xl">
+                    Sovereign Soul
+                  </span>
+                  <span className="text-xs font-semibold uppercase tracking-[0.35em] text-amber-300/80">
+                    Collective
+                  </span>
+                </span>
+              </a>
 
-        <motion.div
-          className="relative z-10 max-w-2xl text-center"
-          variants={containerVariants}
-        >
-          {/* Seal Mark */}
-          <motion.div
-            className="mb-8 flex justify-center"
-            variants={itemVariants}
-          >
-            <div className="w-20 h-20 rounded-full border-2 border-amber-600/40 flex items-center justify-center">
-              <div className="w-12 h-12 rounded-full border border-amber-500/60 flex items-center justify-center text-amber-600 text-xs font-light">
-                SSC
+              <p className="mb-4 text-xs font-semibold uppercase tracking-[0.32em] text-amber-300/80">
+                A contemplative space for inner work
+              </p>
+              <h1 className="max-w-xl text-5xl leading-none text-stone-50 sm:text-6xl lg:text-7xl">
+                Understand the patterns beneath the surface.
+              </h1>
+              <p className="mt-6 max-w-xl text-lg text-stone-300 sm:text-xl">
+                Explore your subconscious patterns, question what no longer
+                fits, and make more aligned choices in a thoughtful community
+                built for depth rather than noise.
+              </p>
+
+              <div className="mt-8 flex flex-col gap-4 sm:flex-row">
+                <a
+                  href={skoolCommunityUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center rounded-full bg-amber-400 px-6 py-3 text-base font-semibold text-stone-950 transition-colors hover:bg-amber-300"
+                >
+                  Explore the community <span aria-hidden="true">→</span>
+                </a>
+                <a
+                  href="#pathway"
+                  className="inline-flex items-center justify-center rounded-full border border-white/15 px-6 py-3 text-base font-medium text-stone-100 transition-colors hover:border-amber-300/50 hover:text-amber-100"
+                >
+                  See how it works
+                </a>
+              </div>
+
+              <p className="mt-5 text-sm text-stone-400">
+                Lessons, reflection, and meaningful conversation for people who
+                sense there is more to life than surface-level answers.
+              </p>
+            </div>
+
+            <div className="order-1 lg:order-2">
+              <div className="overflow-hidden rounded-[2rem] border border-white/10 bg-stone-900 shadow-[0_24px_80px_rgba(0,0,0,0.32)]">
+                <picture>
+                  <source srcSet={heroImage} type="image/webp" />
+                  <img
+                    src={heroImageFallback}
+                    alt="A person sitting in reflection above a mountain valley at sunrise"
+                    width="1440"
+                    height="811"
+                    className="aspect-[16/10] h-full w-full object-cover"
+                    loading="eager"
+                    fetchPriority="high"
+                    decoding="async"
+                    sizes="(min-width: 1024px) 540px, 100vw"
+                  />
+                </picture>
               </div>
             </div>
-          </motion.div>
-
-          {/* Main Headline */}
-          <motion.h1
-            className="text-5xl md:text-6xl font-light text-slate-50 mb-6 leading-tight"
-            variants={itemVariants}
-          >
-            Understand the Patterns Beneath the Surface
-          </motion.h1>
-
-          {/* Subheading */}
-          <motion.p
-            className="text-xl md:text-2xl text-slate-300 mb-8 font-light leading-relaxed"
-            variants={itemVariants}
-          >
-            A space for people who sense there's more to life. Explore your subconscious patterns, make more aligned choices, and live with greater authenticity.
-          </motion.p>
-
-          {/* CTA Button */}
-          <motion.a
-            href={skoolCommunityUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-3 px-8 py-3 bg-amber-600 hover:bg-amber-700 text-slate-950 font-medium rounded-sm transition-all duration-200 hover:gap-4 group"
-            variants={itemVariants}
-            whileHover={{ scale: 1.02 }}
-            whileTap={{ scale: 0.98 }}
-          >
-            Explore the Community
-            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-          </motion.a>
-        </motion.div>
-      </section>
-
-      {/* Divider */}
-      <motion.div className="flex justify-center px-4" variants={itemVariants}>
-        <div className="w-16 h-px bg-gradient-to-r from-transparent via-amber-600/50 to-transparent"></div>
-      </motion.div>
-
-      {/* Mission Section */}
-      <section className="py-20 px-4 max-w-4xl mx-auto">
-        <motion.div
-          className="text-center mb-16"
-          variants={containerVariants}
-        >
-          <motion.h2
-            className="text-4xl md:text-5xl font-light text-slate-100 mb-6"
-            variants={itemVariants}
-          >
-            What We Explore
-          </motion.h2>
-          <motion.div
-            className="w-16 h-px bg-amber-600/60 mx-auto"
-            variants={itemVariants}
-          ></motion.div>
-        </motion.div>
-
-        <motion.div
-          className="prose prose-invert prose-lg max-w-3xl mx-auto"
-          variants={containerVariants}
-        >
-          <motion.p
-            className="text-slate-200 text-lg leading-relaxed mb-8 font-light"
-            variants={itemVariants}
-          >
-            Here we explore <span className="text-amber-400">consciousness, spirituality, transpersonal development, self-awareness, and human potential</span>.
-          </motion.p>
-
-          <motion.p
-            className="text-slate-200 text-lg leading-relaxed font-light"
-            variants={itemVariants}
-          >
-            Through lessons, reflection, meaningful conversation, and shared perspectives, you'll be invited to <span className="text-amber-400">look within, question assumptions, and turn insight into everyday change</span>.
-          </motion.p>
-        </motion.div>
-      </section>
-
-      {/* Divider */}
-      <motion.div className="flex justify-center px-4" variants={itemVariants}>
-        <div className="w-16 h-px bg-gradient-to-r from-transparent via-amber-600/50 to-transparent"></div>
-      </motion.div>
-
-      {/* Values Section */}
-      <section className="py-20 px-4">
-        <motion.div className="max-w-4xl mx-auto" variants={containerVariants}>
-          <motion.h2
-            className="text-3xl md:text-4xl font-light text-slate-100 mb-12 text-center"
-            variants={itemVariants}
-          >
-            Our Approach
-          </motion.h2>
-
-          <div className="grid md:grid-cols-3 gap-8">
-            {[
-              {
-                title: "Deep Self-Inquiry",
-                description:
-                  "Understand the subconscious patterns and beliefs shaping your life and choices.",
-              },
-              {
-                title: "Authentic Alignment",
-                description:
-                  "Move beyond surface-level understanding to live in genuine alignment with your values.",
-              },
-              {
-                title: "Shared Wisdom",
-                description:
-                  "Learn from lessons, reflections, and the perspectives of a conscious community.",
-              },
-            ].map((value, idx) => (
-              <motion.div
-                key={idx}
-                className="p-8 border border-amber-600/30 rounded-sm bg-slate-800/30 backdrop-blur-sm hover:bg-slate-800/50 transition-all duration-300"
-                variants={itemVariants}
-              >
-                <h3 className="text-xl font-light text-amber-400 mb-3">
-                  {value.title}
-                </h3>
-                <p className="text-slate-300 font-light leading-relaxed">
-                  {value.description}
-                </p>
-              </motion.div>
-            ))}
           </div>
-        </motion.div>
-      </section>
+        </section>
 
-      {/* Divider */}
-      <motion.div className="flex justify-center px-4" variants={itemVariants}>
-        <div className="w-16 h-px bg-gradient-to-r from-transparent via-amber-600/50 to-transparent"></div>
-      </motion.div>
+        <section className="mx-auto max-w-6xl px-6 py-20 sm:px-8 lg:px-10">
+          <SectionHeading
+            eyebrow="What this is"
+            title="A grounded place to explore consciousness, spirituality, and human potential."
+            description="Sovereign Soul Collective offers a clear container for people who want to understand themselves more deeply without being pushed toward borrowed beliefs or performative certainty."
+          />
 
-      {/* Final CTA Section */}
-      <section className="py-20 px-4">
-        <motion.div
-          className="max-w-2xl mx-auto text-center"
-          variants={containerVariants}
+          <ul className="mt-10 grid gap-4 text-base text-stone-300 sm:text-lg">
+            {supportPoints.map((point) => (
+              <li
+                key={point}
+                className="rounded-3xl border border-white/10 bg-white/5 px-5 py-4"
+              >
+                {point}
+              </li>
+            ))}
+          </ul>
+        </section>
+
+        <section className="border-y border-white/10 bg-black/10">
+          <div className="mx-auto max-w-6xl px-6 py-20 sm:px-8 lg:px-10">
+            <SectionHeading
+              eyebrow="Core pillars"
+              title="A simple structure that supports honest inner development."
+            />
+
+            <div className="mt-10 grid gap-5 lg:grid-cols-3">
+              {pillars.map((pillar) => (
+                <article
+                  key={pillar.title}
+                  className="rounded-3xl border border-white/10 bg-stone-950/50 p-6"
+                >
+                  <h3 className="text-3xl text-amber-200">{pillar.title}</h3>
+                  <p className="mt-4 text-base text-stone-300 sm:text-lg">
+                    {pillar.description}
+                  </p>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section
+          id="pathway"
+          className="mx-auto max-w-6xl px-6 py-20 sm:px-8 lg:px-10"
         >
-          <motion.h2
-            className="text-4xl md:text-5xl font-light text-slate-100 mb-8"
-            variants={itemVariants}
-          >
-            Ready to Explore Within?
-          </motion.h2>
+          <SectionHeading
+            eyebrow="Pathway"
+            title="A clear three-step path from reflection to lived change."
+            description="The experience stays lightweight on purpose: join, explore, and apply what resonates."
+          />
 
-          <motion.p
-            className="text-lg text-slate-300 mb-12 font-light"
-            variants={itemVariants}
-          >
-            Join a community of thoughtful people committed to understanding themselves deeply and living with greater authenticity.
-          </motion.p>
+          <ol className="mt-10 grid gap-5 lg:grid-cols-3">
+            {pathway.map((item) => (
+              <li
+                key={item.step}
+                className="list-none rounded-3xl border border-white/10 bg-white/5 p-6"
+              >
+                <p className="text-sm font-semibold uppercase tracking-[0.28em] text-amber-300/80">
+                  {item.step}
+                </p>
+                <h3 className="mt-4 text-3xl text-stone-50">{item.title}</h3>
+                <p className="mt-4 text-base text-stone-300 sm:text-lg">
+                  {item.description}
+                </p>
+              </li>
+            ))}
+          </ol>
 
-          <motion.a
+          <div className="mt-10 rounded-3xl border border-amber-300/20 bg-amber-300/10 p-6 sm:p-8">
+            <p className="text-sm font-semibold uppercase tracking-[0.28em] text-amber-200/85">
+              Start here
+            </p>
+            <p className="mt-3 max-w-2xl text-lg text-stone-100 sm:text-xl">
+              Join the community, take what resonates, and let insight become a
+              more honest way of living.
+            </p>
+            <a
+              href={skoolCommunityUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-6 inline-flex items-center justify-center rounded-full bg-stone-50 px-6 py-3 font-semibold text-stone-950 transition-colors hover:bg-amber-100"
+            >
+              Join the collective <span aria-hidden="true">→</span>
+            </a>
+          </div>
+        </section>
+
+        <section className="border-y border-white/10 bg-stone-950/40">
+          <div className="mx-auto max-w-5xl px-6 py-20 sm:px-8 lg:px-10">
+            <SectionHeading
+              eyebrow="Trust and resonance"
+              title="Created for people who want depth, honesty, and practical integration."
+              description="This is not about adopting a new identity. It is about noticing what shapes you, staying curious about what you find, and turning that awareness into everyday alignment."
+            />
+
+            <blockquote className="mt-10 max-w-3xl border-l border-amber-300/40 pl-6 text-xl text-stone-200 sm:text-2xl">
+              “Come as you are. Bring your questions, your discernment, and your
+              willingness to look within.”
+            </blockquote>
+          </div>
+        </section>
+
+        <section className="mx-auto max-w-4xl px-6 py-20 text-center sm:px-8 lg:px-10">
+          <SectionHeading
+            eyebrow="Final invitation"
+            title="Make space for the deeper conversation your life is asking for."
+            description="If you are ready to explore with more clarity and less noise, the next step is simple."
+          />
+          <a
             href={skoolCommunityUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-3 px-8 py-4 bg-amber-600 hover:bg-amber-700 text-slate-950 font-medium rounded-sm transition-all duration-200 hover:gap-4 group"
-            variants={itemVariants}
-            whileHover={{ scale: 1.02 }}
-            whileTap={{ scale: 0.98 }}
+            className="mt-8 inline-flex items-center justify-center rounded-full bg-amber-400 px-7 py-3 text-base font-semibold text-stone-950 transition-colors hover:bg-amber-300"
           >
-            Join the Community
-            <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-          </motion.a>
-        </motion.div>
-      </section>
+            Explore the community <span aria-hidden="true">→</span>
+          </a>
+        </section>
+      </main>
 
-      {/* Footer */}
-      <footer className="border-t border-amber-600/20 py-8 px-4 text-center">
-        <motion.p
-          className="text-slate-400 text-sm font-light"
-          variants={itemVariants}
-        >
-          Sovereign Soul Collective — A space to understand yourself deeply and live authentically.
-        </motion.p>
+      <footer className="border-t border-white/10">
+        <div className="mx-auto flex max-w-6xl flex-col gap-4 px-6 py-8 text-sm text-stone-400 sm:flex-row sm:items-center sm:justify-between sm:px-8 lg:px-10">
+          <p>© 2026 Sovereign Soul Collective</p>
+          <div className="flex flex-wrap gap-4">
+            <a href="#top" className="hover:text-stone-200">
+              Top
+            </a>
+            <a href="#pathway" className="hover:text-stone-200">
+              Pathway
+            </a>
+            <a
+              href={skoolCommunityUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-stone-200"
+            >
+              Community
+            </a>
+          </div>
+        </div>
       </footer>
-    </motion.div>
+    </div>
   );
 }
