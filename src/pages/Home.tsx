@@ -59,7 +59,7 @@ function SectionHeading({
   description?: string;
 }) {
   return (
-    <div className="max-w-3xl">
+    <div className="mx-auto max-w-3xl">
       <p className="mb-4 text-xs font-semibold uppercase tracking-[0.3em] text-amber-300/80">
         {eyebrow}
       </p>
