@@ -75,7 +75,7 @@ function SectionHeading({
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-transparent text-stone-100">
+    <div id="top" className="min-h-screen bg-transparent text-stone-100">
       <main>
         <section className="border-b border-white/10">
           <div className="mx-auto grid min-h-screen max-w-6xl items-center gap-12 px-6 py-16 sm:px-8 lg:grid-cols-[minmax(0,1fr)_minmax(320px,540px)] lg:px-10">
@@ -107,10 +107,7 @@ export default function Home() {
               <p className="mb-4 text-xs font-semibold uppercase tracking-[0.32em] text-amber-300/80">
                 A contemplative space for inner work
               </p>
-              <h1
-                id="top"
-                className="max-w-xl text-5xl leading-none text-stone-50 sm:text-6xl lg:text-7xl"
-              >
+              <h1 className="max-w-xl text-5xl leading-none text-stone-50 sm:text-6xl lg:text-7xl">
                 Understand the patterns beneath the surface.
               </h1>
               <p className="mt-6 max-w-xl text-lg text-stone-300 sm:text-xl">
